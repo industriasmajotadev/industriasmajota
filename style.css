@@ -1,0 +1,695 @@
+body {
+  background-image: url('imagenes/principal1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fija la imagen de fondo */
+}
+
+.content {
+  height: 1000px; /* Altura de la sección de contenido */
+}
+
+.parallax {
+  height: 1000px; /* Altura de la imagen de fondo */
+  background-image: url('imagenes/principal1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fija la imagen de fondo */
+  position: relative;
+  overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.parallax img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1; /* Asegura que la imagen de fondo esté detrás del contenido */
+}
+
+
+/* ESTILO DE MI TITULO */
+.titulo-gotico {
+  font-family: 'Gothic', sans-serif; /* Utiliza una fuente gótica o similar */
+  font-size: 36px; /* Ajusta el tamaño según tus preferencias */
+  color: #F73511; /* Ajusta el color del texto según tus preferencias */
+  text-align: center; /* Ajusta la alineación del texto según tus preferencias */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta la sombra según tus preferencias */
+  /* Otros estilos que desees aplicar */
+    border-radius: 20px; /* Bordes curveados */
+        background-color: green; /* Fondo verde */
+
+
+}
+
+/* FONDO DEMI TEXTO  DESCRIPCION Y BIENVENIDA  ALA PAGINA*/
+.container1 {
+  background-color: #ffffff; /* Código de color blanco */
+  padding: 20px; /* Ajusta el espaciado interno según tus preferencias */
+  border-radius: 20px; /* Bordes curveados */
+
+}
+
+.container h5, .container h3 {
+  color: #333333; /* Cambia el color del texto según tus preferencias */
+}
+
+/* Si deseas que los títulos estén más separados del texto, puedes agregar un margen inferior a los títulos */
+.container h5 {
+  margin-bottom: 10px; /* Ajusta el margen según tus preferencias */
+}
+
+.container p {
+  color: #666666; /* Cambia el color del texto del párrafo según tus preferencias */
+  line-height: 1.6; /* Ajusta el interlineado según tus preferencias */
+}
+
+.industrias-img{
+  width: 500px;
+  height: 900px;
+}
+
+/* ESTUILOS DEMIS CARDS QUE MUETRAN LAS MAQUINAS INDUTRIALES */
+.card {
+  position: relative;
+  background: #fff;
+  width: 250px;
+  height: 265px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 120ms;
+  overflow: hidden;
+  box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+}
+
+.card:active {
+  transform: scale(.95);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px 0px 25px 5px rgba(255, 255, 255, .5);
+  z-index: 1;
+}
+
+.card::after {
+  content: "haga clikc";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  padding-left: 15px;
+  background: #181818;
+  width: 100%;
+  height: 60px;
+  color: #fff;
+  line-height: 50px;
+  text-transform: uppercase;
+  z-index: 2;
+  transition: all .2s ease-in;
+}
+
+.card:hover::after {
+  bottom: 0;
+}
+
+.card:active::after {
+  content: "mas informacion !";
+  height: 65px;
+}
+
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  filter: drop-shadow(3px 3px 5px #18181815);
+  transform: translate(-50%, -50%);
+  animation: shoes 1s ease infinite alternate;
+  transition: all .5s ease-in;
+}
+
+@keyframes shoes {
+  from {
+    top: 48%;
+  }
+
+  to {
+    top: 52%;
+  }
+}
+
+.card:hover .image {
+  /* top: 20%;
+  left: 30%; */
+  width: 220px;
+  height: auto;
+  animation: none;
+  transform: rotate(15deg) translate(-35%, -25%);
+}
+
+.text {
+  position: absolute;
+  top: 15%;
+  left: -80%;
+  color: #181818;
+  transition: all .3s ease-in;
+}
+
+.text span {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.text p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card:hover .text {
+  top: 15%;
+  left: 5%;
+}
+
+.fil-shoes2 {
+  fill: #a59573
+}
+
+
+/* ESTILO DELAS MINI VENTANAS QUE SE MUESTRAN AL HACVER CLIK EN LOS CARDS     */
+
+/* Estilos del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-details {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+}
+#overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Color oscuro semi-transparente */
+    z-index: 99; /* Se coloca por encima de todo excepto del modal */
+}
+
+/* Estilos del modal permanecen igual */
+
+/* Agregar estilos para deshabilitar la interacción con elementos de fondo */
+.modal {
+    /* Resto de estilos permanecen igual */
+    z-index: 100; /* Se coloca por encima del overlay */
+}
+
+
+
+
+
+.modal1 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal1-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-details {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+}
+/* Estilos del overlay */
+
+
+/* Estilos del modal permanecen igual */
+
+/* Agregar estilos para deshabilitar la interacción con elementos de fondo */
+.modal1 {
+    /* Resto de estilos permanecen igual */
+    z-index: 100; /* Se coloca por encima del overlay */
+}
+
+.modal4 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal4-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.cubierto {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cubierto:hover,
+.cubierto:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-details {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+}
+
+/* Estilos del modal permanecen igual */
+
+/* Agregar estilos para deshabilitar la interacción con elementos de fondo */
+.modal4 {
+    /* Resto de estilos permanecen igual */
+    z-index: 100; /* Se coloca por encima del overlay */
+}
+
+
+
+
+.modal3 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal3-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.serrado {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.serrado:hover,
+.serrado:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-details {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+}
+
+/* Estilos del modal permanecen igual */
+
+/* Agregar estilos para deshabilitar la interacción con elementos de fondo */
+.modal3 {
+    /* Resto de estilos permanecen igual */
+    z-index: 100; /* Se coloca por encima del overlay */
+}
+
+
+.modal5 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal5-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-details {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+}
+
+/* Estilos del modal permanecen igual */
+
+/* Agregar estilos para deshabilitar la interacción con elementos de fondo */
+.modal5 {
+    /* Resto de estilos permanecen igual */
+    z-index: 100; /* Se coloca por encima del overlay */
+}
+
+
+
+.modal6 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal6-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.negro {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.negro:hover,
+.negro:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-details {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+}
+
+/* Estilos del modal permanecen igual */
+
+/* Agregar estilos para deshabilitar la interacción con elementos de fondo */
+.modal6 {
+    /* Resto de estilos permanecen igual */
+    z-index: 100; /* Se coloca por encima del overlay */
+}
+
+
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal2-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.abajo {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.abajo:hover,
+.abajo:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-details {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+}
+
+/* Estilos del modal permanecen igual */
+
+/* Agregar estilos para deshabilitar la interacción con elementos de fondo */
+.modal2 {
+    /* Resto de estilos permanecen igual */
+    z-index: 100; /* Se coloca por encima del overlay */
+}
+
+
+
+
+/* ESTILO DELA DESCRIPCION DEL MAPS   */
+.descrip{
+    background-color: green; /* Fondo verde */
+  font-family: Arial, sans-serif; /* Fuente */
+   text-align: center; /* Texto centrado */
+ padding: 20px; /* Espacio alrededor del contenido */
+border-radius: 40px; /* Bordes curveados */
+
+}
+
+
+/* ESTILO De MI PIE DE PAGINA  PRINCIPAL  */
+footer {
+    background-color: #244F22; /* Color de fondo del pie de página */
+    color: #fff; /* Color del texto */
+    padding: 5px; /* Espacio interno */
+      border-radius: 20px; /* Bordes curveados */
+
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-content img {
+    height: 50px; /* Altura del logo */
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+
+/* ESTILOS DEMIS BOTONES */
+
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+}
+
+.social-button {
+  background-color: #007bff; /* Color de fondo del botón */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.social-button img {
+  width: 40px; /* Ancho del icono */
+  height: 40px; /* Altura del icono */
+}
+ 
+
+ /* ESTILO DEMI TABLA DE BOTONES  QUE DIRIGEN ALAS REDES SOCIALES*/
+
+ button {
+  background: transparent;
+   width: 200px;
+  height: 50px;
+  color: #fff;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  padding: 20px 30px;
+  perspective: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
+}
+
+button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(320deg, rgba(0, 140, 255, 0.678), rgba(128, 0, 128, 0.308));
+  z-index: 1;
+  transition: background 3s;
+}
+
+button:hover::before {
+  animation: rotate 1s;
+  transition: all .5s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
